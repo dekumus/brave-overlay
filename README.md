@@ -27,6 +27,11 @@ stage by writing a `check_<name>()` that prints its own findings and returns
 to break each stage deliberately, right next to it, and exercise that before
 trusting it: a check only ever observed passing is not known to work.
 
+`.github/workflows/gate.yml` runs `sh scripts/gate.sh all` on every pull
+request and on pushes to `main`. The job passes or fails on the gate's own
+exit code — CI adds nothing to the verdict, it just runs it somewhere that
+isn't a laptop.
+
 Two habits worth keeping as this grows:
 
 - A stage that finds nothing to check must print `SKIPPED` and still return 0

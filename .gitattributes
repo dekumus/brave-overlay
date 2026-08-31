@@ -1,4 +1,6 @@
 # Force LF regardless of the checking-out platform. A shell script with a
 # CRLF-terminated shebang line fails to run — this bit the prior project.
-*.sh text eol=lf
-*.py text eol=lf
+*.sh  text eol=lf
+*.py  text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf

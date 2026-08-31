@@ -1,0 +1,22 @@
+name: gate
+
+# Runs the gate (scripts/gate.sh) on every PR and on pushes to main. The
+# verdict is the job's success/failure, which is gate.sh's own exit code —
+# not a count of green ticks in the log, matching how the gate defines its
+# verdict for a human runner.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: sh scripts/gate.sh all
+        run: sh scripts/gate.sh all
