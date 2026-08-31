@@ -1,0 +1,4 @@
+# Force LF regardless of the checking-out platform. A shell script with a
+# CRLF-terminated shebang line fails to run — this bit the prior project.
+*.sh text eol=lf
+*.py text eol=lf
